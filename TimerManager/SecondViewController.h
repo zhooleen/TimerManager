@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "RTTimerManager.h"
 
 @interface SecondViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
-
-@property (strong, nonatomic) RTTimerObject *timerObject;
 
 @end
