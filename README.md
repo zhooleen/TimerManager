@@ -1,6 +1,6 @@
 # TimerManager
 1. Automatically cancel the timer when the timer holder dealloc
-2. Automatically cancel all timer when app did enter background. Resume them manually if neccessory.
+2. Automatically cancel all timer when app did enter background. Resume them manually if necessarily.
 3. Also, Cancel the timer manually if required.
 
 # Usage
@@ -11,7 +11,7 @@ Get the timer
 __weak typeof(self) werakself = self;
 id<RTTimer> timer = [RTTimerManager timerWithInterval:0.1f repeated:YES block:^{
 	__strong typeof(weakself) this = weakself;
-	//Do your work in the block using this instead of self if neccessorily.
+	//Do your work in the block using this instead of self if necessarily.
 }];
 
 /**
