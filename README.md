@@ -35,6 +35,5 @@ self.timer = nil; //cancel forever
 
 ```
  
- WARNINGS
- =
+ # WARNINGS
  Don't let block retain a strong reference to self
