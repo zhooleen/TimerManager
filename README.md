@@ -1,18 +1,38 @@
 # TimerManager
-A manager to avoid retain cycle when using NSTimer in Objective-C
-
+1. Automatically cancel the timer when the timer holder dealloc
+2. Automatically cancel all timer when app did enter background. Resume them manually if neccessory.
+3. Also, Cancel the timer manually if required.
 
 # Usage
+``` Objective-C
+/**
+Get the timer
+*/
+id<RTTimer> timer = [RTTimerManager timerWithInterval:0.1f repeated:YES block:^{
+	//do your work.
+}];
 
-1. retain the timer-object, and start a timer
+/**
+Hold it
+*/
+self.timer = timer;
+
+/**
+Resume
+*/
+[self.timer resume];
+
+/**
+Cancel
+*/
+[self.timer cancel]; //awake it again by `[self.timer resume]`;
+/**
+OR
+*/
+self.timer = nil; //cancel forever
+
 ```
-	_timerObject = [RTTimerManager scheduledTimer...];
-```
-2. The following ways to invalidate timer
-	-  `_timerObject = nil`
-		invalidate timer forever
-	-  `[_timerObject.timerHolder stopTimer]`;
-		awake a new timer by `[_timerObject.timerHoler startTimer]`;
+
 
 #Example
  
