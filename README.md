@@ -9,9 +9,9 @@ A manager to avoid retain cycle when using NSTimer in Objective-C
 	_timerObject = [RTTimerManager scheduledTimer...];
 ```
 2. The following ways to invalidate timer
-	2.1 `_timerObject = nil`
+	-  `_timerObject = nil`
 		invalidate timer forever
-	2.2 `[_timerObject.timerHolder stopTimer]`;
+	-  `[_timerObject.timerHolder stopTimer]`;
 		awake a new timer by `[_timerObject.timerHoler startTimer]`;
 
 #Example
