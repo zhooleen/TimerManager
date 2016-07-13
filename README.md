@@ -8,8 +8,10 @@
 /**
 Get the timer
 */
+__weak typeof(self) werakself = self;
 id<RTTimer> timer = [RTTimerManager timerWithInterval:0.1f repeated:YES block:^{
-	//do your work.
+	__strong typeof(weakself) this = weakself;
+	//Do your work in the block using this instead of self if neccessorily.
 }];
 
 /**
@@ -32,7 +34,7 @@ OR
 self.timer = nil; //cancel forever
 
 ```
-
-
-#Example
  
+ WARNINGS
+ =
+ Don't let block retain a strong reference to self
