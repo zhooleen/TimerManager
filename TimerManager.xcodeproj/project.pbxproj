@@ -19,6 +19,8 @@
 		3E6700CF1D3F4BB100259F22 /* CountdownTimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6700CE1D3F4BB100259F22 /* CountdownTimerController.m */; };
 		3E6700D21D3F6C0D00259F22 /* RTDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6700D11D3F6C0D00259F22 /* RTDisplayLink.m */; };
 		3E6700D51D3F78FB00259F22 /* DisplayLinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6700D41D3F78FB00259F22 /* DisplayLinkController.m */; };
+		3E6700D81D3FA62600259F22 /* RTCountTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6700D71D3FA62600259F22 /* RTCountTimer.m */; };
+		3E6700DB1D3FB53C00259F22 /* RTStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E6700DA1D3FB53C00259F22 /* RTStopwatch.m */; };
 		3E74CBC11D35279D001F5739 /* RTDispatchTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74CBC01D35279D001F5739 /* RTDispatchTimer.m */; };
 		3E74CBC41D35285C001F5739 /* RTTimerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74CBC31D35285C001F5739 /* RTTimerProxy.m */; };
 		3E74CBC71D35E08A001F5739 /* RTCocoaTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E74CBC61D35E08A001F5739 /* RTCocoaTimer.m */; };
@@ -47,6 +49,10 @@
 		3E6700D11D3F6C0D00259F22 /* RTDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTDisplayLink.m; path = Classes/RTDisplayLink.m; sourceTree = "<group>"; };
 		3E6700D31D3F78FB00259F22 /* DisplayLinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayLinkController.h; sourceTree = "<group>"; };
 		3E6700D41D3F78FB00259F22 /* DisplayLinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayLinkController.m; sourceTree = "<group>"; };
+		3E6700D61D3FA62600259F22 /* RTCountTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCountTimer.h; path = Classes/RTCountTimer.h; sourceTree = "<group>"; };
+		3E6700D71D3FA62600259F22 /* RTCountTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTCountTimer.m; path = Classes/RTCountTimer.m; sourceTree = "<group>"; };
+		3E6700D91D3FB53C00259F22 /* RTStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTStopwatch.h; path = Classes/RTStopwatch.h; sourceTree = "<group>"; };
+		3E6700DA1D3FB53C00259F22 /* RTStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTStopwatch.m; path = Classes/RTStopwatch.m; sourceTree = "<group>"; };
 		3E74CBBC1D352592001F5739 /* RTTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTTimer.h; path = Classes/RTTimer.h; sourceTree = "<group>"; };
 		3E74CBBF1D35279D001F5739 /* RTDispatchTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTDispatchTimer.h; path = Classes/RTDispatchTimer.h; sourceTree = "<group>"; };
 		3E74CBC01D35279D001F5739 /* RTDispatchTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTDispatchTimer.m; path = Classes/RTDispatchTimer.m; sourceTree = "<group>"; };
@@ -130,6 +136,10 @@
 				3E6700CB1D3F26A500259F22 /* RTCountDownTimer.m */,
 				3E6700D01D3F6C0D00259F22 /* RTDisplayLink.h */,
 				3E6700D11D3F6C0D00259F22 /* RTDisplayLink.m */,
+				3E6700D61D3FA62600259F22 /* RTCountTimer.h */,
+				3E6700D71D3FA62600259F22 /* RTCountTimer.m */,
+				3E6700D91D3FB53C00259F22 /* RTStopwatch.h */,
+				3E6700DA1D3FB53C00259F22 /* RTStopwatch.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -210,10 +220,12 @@
 				3E74CBC11D35279D001F5739 /* RTDispatchTimer.m in Sources */,
 				3E6700CC1D3F26A500259F22 /* RTCountDownTimer.m in Sources */,
 				3E54509A1D2EA58B0027D4CC /* SecondViewController.m in Sources */,
+				3E6700D81D3FA62600259F22 /* RTCountTimer.m in Sources */,
 				3E6700D51D3F78FB00259F22 /* DisplayLinkController.m in Sources */,
 				3E6700D21D3F6C0D00259F22 /* RTDisplayLink.m in Sources */,
 				3E5450941D2E9DDC0027D4CC /* RTTimerManager.m in Sources */,
 				3E74CBC71D35E08A001F5739 /* RTCocoaTimer.m in Sources */,
+				3E6700DB1D3FB53C00259F22 /* RTStopwatch.m in Sources */,
 				3E5450791D2E97B20027D4CC /* main.m in Sources */,
 				3E6700CF1D3F4BB100259F22 /* CountdownTimerController.m in Sources */,
 			);

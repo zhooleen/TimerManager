@@ -10,13 +10,13 @@
 
 @protocol RTTimer <NSObject>
 
-- (void) resume;
+- (void) resume;        //start or resume the timer
 
-- (void) suspend;
+- (void) suspend;       //let the timer pause
 
-- (void) cancel;
+- (void) cancel;        //invalidate the timer
 
-- (BOOL) isRunning;
+- (BOOL) isRunning;     //is running
 
 @end
 
@@ -24,3 +24,5 @@
 typedef void(^RTDisplayLinkBlock)(NSTimeInterval timestamp, NSTimeInterval duration);
 
 typedef void(^RTCountDownTimerBlock)(NSTimeInterval leftTime);
+
+typedef void(^RTCountTimerBlock)(NSTimeInterval elapse, NSUInteger counter);

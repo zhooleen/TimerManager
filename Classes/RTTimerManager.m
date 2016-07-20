@@ -14,6 +14,7 @@
 #import "RTCocoaTimer.h"
 #import "RTTimerProxy.h"
 #import "RTCountDownTimer.h"
+#import "RTCountTimer.h"
 #import "RTDisplayLink.h"
 
 @interface RTCountDownTimerHolder : NSObject
@@ -79,6 +80,9 @@
     [self deobserve];
 }
 
+
+#pragma mark - Timers
+
 + (id<RTTimer>) timerWithInterval:(NSTimeInterval)interval repeated:(BOOL)repeat queue:(dispatch_queue_t)queue block:(dispatch_block_t)block {
     NSAssert(interval >= 0.01, @"Time interval if timer must great than or equal to 0.01");
     NSAssert(queue, @"Dispatch queue can not be nil");
@@ -122,16 +126,14 @@
     return timer;
 }
 
-#pragma mark - RTCountDownTimerDelegate
-
-- (void) countDownTimer:(RTCountDownTimer*)timer withLeftTime:(NSTimeInterval)time {
-    RTCountDownTimerHolder *holder = [[RTTimerManager shareManager].countDownTimers objectForKey:timer.identifier];
-    if(holder && holder.block) {
-        holder.block(time);
-    }
-    if(time == 0.0f) {
-        [[RTTimerManager shareManager].countDownTimers removeObjectForKey:timer.identifier];
-    }
++ (id<RTTimer>) countTimerWithCapacity:(NSUInteger)capacity interval:(NSTimeInterval)interval block:(RTCountTimerBlock)block {
+    RTCountTimer *timer = [[RTCountTimer alloc] init];
+    timer.maximumTimes = capacity;
+    timer.interval = interval;
+    timer.queue = [RTTimerManager shareManager].queue;
+    timer.block = block;
+    [[RTTimerManager shareManager].table addObject:timer];
+    return timer;
 }
 
 + (id<RTTimer>) displayLinkWithFrameInterval:(NSInteger)interval block:(RTDisplayLinkBlock)block {
@@ -142,6 +144,18 @@
     RTTimerProxy *proxy = [[RTTimerProxy alloc] initWithTimer:link];
     link.referenceObject = proxy;
     return proxy;
+}
+
+#pragma mark - RTCountDownTimerDelegate
+
+- (void) countDownTimer:(RTCountDownTimer*)timer withLeftTime:(NSTimeInterval)time {
+    RTCountDownTimerHolder *holder = [[RTTimerManager shareManager].countDownTimers objectForKey:timer.identifier];
+    if(holder && holder.block) {
+        holder.block(time);
+    }
+    if(time == 0.0f) {
+        [[RTTimerManager shareManager].countDownTimers removeObjectForKey:timer.identifier];
+    }
 }
 
 @end
