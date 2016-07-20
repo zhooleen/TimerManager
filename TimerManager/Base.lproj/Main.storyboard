@@ -63,7 +63,7 @@
                                     <constraint firstAttribute="height" constant="177" id="JXY-t6-KV7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -73,7 +73,13 @@
                             <constraint firstItem="e2F-9z-iPc" firstAttribute="centerX" secondItem="zbB-P5-tsU" secondAttribute="centerX" id="f5I-yr-rS0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Second" id="2gc-tF-FrR"/>
+                    <navigationItem key="navigationItem" title="Second" id="2gc-tF-FrR">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="3G8-HP-hbr">
+                            <connections>
+                                <segue destination="vYn-zk-BuZ" kind="show" id="ikP-by-58B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="timerLabel" destination="e2F-9z-iPc" id="4Uc-BG-zbA"/>
@@ -82,6 +88,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XVg-tF-wnH" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1575" y="363"/>
+        </scene>
+        <!--Countdown Timer-->
+        <scene sceneID="xiP-le-er0">
+            <objects>
+                <viewController storyboardIdentifier="CountdownTimerController" id="vYn-zk-BuZ" customClass="CountdownTimerController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u3w-xO-cqR"/>
+                        <viewControllerLayoutGuide type="bottom" id="WsU-uu-7i7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oaE-rQ-tCB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8z-JK-sfY">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <color key="backgroundColor" red="0.0" green="0.86993729440000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="62W-1G-DxX"/>
+                                    <constraint firstAttribute="width" constant="200" id="zkT-tc-Tm3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q8z-JK-sfY" firstAttribute="centerX" secondItem="oaE-rQ-tCB" secondAttribute="centerX" id="WPk-X6-y5b"/>
+                            <constraint firstItem="Q8z-JK-sfY" firstAttribute="centerY" secondItem="oaE-rQ-tCB" secondAttribute="centerY" id="rVi-hZ-6RK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Countdown Timer" id="zv8-es-iqz"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="label" destination="Q8z-JK-sfY" id="Ek6-gD-Ebi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWv-JG-xee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YNc-rp-jNU">

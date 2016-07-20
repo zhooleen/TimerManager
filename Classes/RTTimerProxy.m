@@ -40,4 +40,8 @@
     return [self.timer isRunning];
 }
 
+- (void) dealloc {
+    [self.timer cancel];
+}
+
 @end

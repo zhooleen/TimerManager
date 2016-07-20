@@ -25,7 +25,7 @@
 - (void) resume {
     if(self.timer == nil) {
         self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.queue);
-        dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, self.interval, 0.05f);
+        dispatch_source_set_timer(self.timer, DISPATCH_TIME_NOW, self.interval * NSEC_PER_SEC, 0.05f);
         __weak typeof(self) this = self;
         dispatch_source_set_event_handler(self.timer, ^{
             if(this.referenceObject && this.block) {

@@ -13,11 +13,31 @@
 #import "RTDispatchTimer.h"
 #import "RTCocoaTimer.h"
 #import "RTTimerProxy.h"
+#import "RTCountDownTimer.h"
 
-@interface RTTimerManager()
+@interface RTCountDownTimerHolder : NSObject
+
+@property (strong, nonatomic) id<RTTimer> timer;
+
+@property (copy, nonatomic) RTCountDownTimerBlock block;
+
+@end @implementation RTCountDownTimerHolder @end
+
+
+
+@interface RTTimerManager() <RTCountDownTimerDelegate>
+
 @property (strong, nonatomic) NSHashTable *table;
+
 @property (strong, nonatomic) id observer;
+
+@property (strong, nonatomic) NSMutableDictionary *countDownTimers;
+
+@property (strong, nonatomic) dispatch_queue_t queue;
+
 @end
+
+
 
 @implementation RTTimerManager
 
@@ -25,6 +45,8 @@
     self = [super init];
     if(self) {
         _table = [NSHashTable weakObjectsHashTable];
+        _queue = dispatch_queue_create("com.redeight.TimerManager.Queue", DISPATCH_QUEUE_CONCURRENT);
+        _countDownTimers = [NSMutableDictionary dictionaryWithCapacity:8];
     }
     return self;
 }
@@ -82,6 +104,33 @@
     timer.referenceObject = proxy;
     [[RTTimerManager shareManager].table addObject:timer];
     return proxy;
+}
+
++ (id<RTTimer>) countdownTimerWithIdentifier:(NSString*)identifier duration:(NSTimeInterval)duration interval:(NSTimeInterval)interval block:(RTCountDownTimerBlock)block {
+    RTCountDownTimerHolder *holder = [[RTTimerManager shareManager].countDownTimers objectForKey:identifier];
+    if(holder) {
+        holder.block = block;
+        return holder.timer;
+    }
+    RTCountDownTimer *timer = [[RTCountDownTimer alloc] initWithIdentifier:identifier duration:duration intrval:interval queue:[RTTimerManager shareManager].queue];
+    timer.delegate = [RTTimerManager shareManager];
+    holder = [[RTCountDownTimerHolder alloc] init];
+    holder.block = block;
+    holder.timer = timer;
+    [[RTTimerManager shareManager].countDownTimers setObject:holder forKey:identifier];
+    return timer;
+}
+
+#pragma mark - RTCountDownTimerDelegate
+
+- (void) countDownTimer:(RTCountDownTimer*)timer withLeftTime:(NSTimeInterval)time {
+    RTCountDownTimerHolder *holder = [[RTTimerManager shareManager].countDownTimers objectForKey:timer.identifier];
+    if(holder && holder.block) {
+        holder.block(time);
+    }
+    if(time == 0.0f) {
+        [[RTTimerManager shareManager].countDownTimers removeObjectForKey:timer.identifier];
+    }
 }
 
 @end
