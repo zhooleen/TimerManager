@@ -3,6 +3,32 @@
 2. Automatically cancel all timer when app did enter background. Resume them manually if necessarily.
 3. Also, Cancel the timer manually if required.
 
+# Timers
+>
+> The protocol id<RTTimer> has four instance methods as follows: 
+> 
+> [resume] : start or resume a timer
+> 
+> [suspend]: suspend the timer
+>
+> [cancel] : stop the timer
+>
+> [isRunning]
+>
+1. Normal timers
+>
+> [RTTimerManager timerWithInterval:repeated:queue:block:] execute the callback in a specified queue
+>
+> [RTTimerManager timerWithInterval:repeated:block:] execute the callback in main thread
+>
+2. Countdown timer
+>
+> [RTTimerManager countdownTimerWithIdentifier:duration:interval:block] 
+>
+3. Display Link
+>
+> [RTTimerManager displayLinkWithFrameInterval:block]
+>
 # Usage
 ``` Objective-C
 /**

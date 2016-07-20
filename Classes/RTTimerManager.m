@@ -14,6 +14,7 @@
 #import "RTCocoaTimer.h"
 #import "RTTimerProxy.h"
 #import "RTCountDownTimer.h"
+#import "RTDisplayLink.h"
 
 @interface RTCountDownTimerHolder : NSObject
 
@@ -131,6 +132,16 @@
     if(time == 0.0f) {
         [[RTTimerManager shareManager].countDownTimers removeObjectForKey:timer.identifier];
     }
+}
+
++ (id<RTTimer>) displayLinkWithFrameInterval:(NSInteger)interval block:(RTDisplayLinkBlock)block {
+    RTDisplayLink *link = [[RTDisplayLink alloc] init];
+    link.frameInterval = interval;
+    link.block = block;
+    [[RTTimerManager shareManager].table addObject:link];
+    RTTimerProxy *proxy = [[RTTimerProxy alloc] initWithTimer:link];
+    link.referenceObject = proxy;
+    return proxy;
 }
 
 @end

@@ -19,3 +19,8 @@
 - (BOOL) isRunning;
 
 @end
+
+
+typedef void(^RTDisplayLinkBlock)(NSTimeInterval timestamp, NSTimeInterval duration);
+
+typedef void(^RTCountDownTimerBlock)(NSTimeInterval leftTime);

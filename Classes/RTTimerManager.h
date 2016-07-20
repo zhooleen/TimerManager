@@ -16,9 +16,6 @@
 
 + (id<RTTimer>) timerWithInterval:(NSTimeInterval)interval repeated:(BOOL)repeat block:(dispatch_block_t)block;
 
-typedef void(^RTCountDownTimerBlock)(NSTimeInterval leftTime);
-
-
 /**
  @param identifier : the countdown timer identifier, if timer with the 'identifier' exists, return it, otherwise create and return a new one
  @param duration   : The time duration the timer lasts. when expired, the timer cancelled.
@@ -32,5 +29,7 @@ typedef void(^RTCountDownTimerBlock)(NSTimeInterval leftTime);
  [suspend],[resume] as normal timer before it expires.
  */
 + (id<RTTimer>) countdownTimerWithIdentifier:(NSString*)identifier duration:(NSTimeInterval)duration interval:(NSTimeInterval)interval block:(RTCountDownTimerBlock)block;
+
++ (id<RTTimer>) displayLinkWithFrameInterval:(NSInteger)interval block:(RTDisplayLinkBlock)block;
 
 @end

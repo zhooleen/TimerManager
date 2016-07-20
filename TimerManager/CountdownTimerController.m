@@ -35,14 +35,4 @@
 }
 
 
-- (void) viewWillAppear:(BOOL)animated {
-    [self.timer cancel];
-}
-
-- (void) viewDidAppear:(BOOL)animated {
-    NSLog(@"");
-}
-- (void) viewWillDisappear:(BOOL)animated {
-    NSLog(@"");
-}
 @end
