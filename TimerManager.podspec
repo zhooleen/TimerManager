@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TimerManager"
-  s.version      = "1.0.2"
+  s.version      = "1.1.0"
   s.summary      = "Automatically & manualy manage the timer life cycle."
 
   # This description is used to generate tags and improve search results.
@@ -81,7 +81,7 @@ It can be cancelled when the timer dealloc.
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/zhooleen/TimerManager.git", :commit => "2962d717f3000cf849df8a1c89a11d511a3023c8" }
+  s.source       = { :git => "https://github.com/zhooleen/TimerManager.git", :tag=s.version}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
